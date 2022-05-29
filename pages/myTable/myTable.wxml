@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+<!----  使用默认宽度时，tableW="{{tableW}}"可以省略，js中也不需要tableW这个参数 ---->
+<!-- <mytable list="{{list}}" headers="{{headers}}" tableW="{{tableW}}"></mytable> -->
+<mytable1 tabData="{{tabData}}"
+    	   columns="{{columns}}"
+         setting="{{setting}}"
+         tableEdit="{{tableEdit}}"
+    	   bind:getCurrentValue="getCurrentValue">
+</mytable1>
+</view>
+<text style="color:darkmagenta;">
+订单状态(请正确选择)
+</text>
+<custom-dropdown option2="{{option2}}"></custom-dropdown> 

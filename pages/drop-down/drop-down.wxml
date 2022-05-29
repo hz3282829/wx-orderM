@@ -1,0 +1,14 @@
+<!--pages/component/custom-drop-down/index.wxml-->
+<view style="position: relative; display: flex; flex-direction: column;">
+    <view style="display:flex; align-items: center; border:black 1px solid" bindtap="clickShow">   
+      <view class="dropdown-value">{{provinceValue}}</view>
+    </view>
+    <view style="height: 100px; border:darkgray 1px solid" wx:if="{{show}}">
+      <scroll-view style="height: 100px;" scroll-y="ture">
+        <view wx:for="{{option2}}" wx:key="value" bindtap="selectIndex" data-index="{{index}}" class="dropdown-item">
+          {{item.text}}
+        </view>
+      </scroll-view>
+ 
+    </view>
+  </view>

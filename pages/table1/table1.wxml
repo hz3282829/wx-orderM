@@ -1,0 +1,44 @@
+<wxs src="./table1.wxs" module="filter" />
+<view class="container">
+  <view class="table"
+        style="width:{{headWidth}};border-radius: {{config.tableRadius}}rpx;border:{{config.tableOutBorder}};border-bottom:{{config.tableOutBorder=='none'?(!!config.tableInBorder?config.tableInBorder:'2rpx solid #ebeef5'):''}};">
+    <view class="thead" style="min-height:{{config.theadHeight}}rpx;background:{{config.theadBgColor}};">
+      <view class="th"
+            wx:for="{{column}}"
+            wx:key="index"
+            style="flex-grow:0;flex-basis:{{headWidth=='100%'?(100/column.length)+'%':item.width+'rpx'}};color:{{config.theadColor}};font-size:{{config.theadFontSize}}rpx;font-weight:{{config.theadFontWeight}};border-right:{{index==(column.length - 1)?'none':(config.tableInBorderLevel?'none':config.tableInBorder)}};border-bottom:{{config.tableInBorder}};">
+        <view class="txt" style="text-align:{{config.theadAlign}};">{{item.label}}</view>
+      </view>
+    </view>
+    <scroll-view scroll-y wx:if="{{tabData.length > 0}}" style="max-height:{{config.tbodyHeight}}rpx;">
+      <view class="tr"
+            wx:for="{{tabData}}"
+            wx:for-item="item"
+            wx:key="index"
+            style="min-height:{{config.trHeight}}rpx;background:{{config.tbodyBgColor}};">
+        <view class="td"
+              wx:for="{{column}}"
+              wx:for-item="col"
+              wx:for-index="colIndex"
+              wx:key="colIndex"
+              style="flex-grow:0;flex-basis:{{headWidth=='100%'?(100/column.length)+'%':col.width+'rpx'}};background:{{index%2!=0?config.stripe:''}};color:{{config.tbodyColor}};font-size:{{config.tbodyFontSize}}rpx;font-weight:{{config.tbodyFontWeight}};border-right:{{colIndex==(column.length - 1)?'none':(config.tableInBorderLevel?'none':config.tableInBorder)}};border-bottom:{{index==tabData.length-1?'none':config.tableInBorder}};">
+          <view class="txt"
+          		data-value="{{item}}"
+              
+          		style="text-align:{{config.tbodyAlign}};font-size:{{col.fontSize}}rpx;font-weight:{{col.fontWeight}};text-decoration:{{col.textDecoration}};color:{{col.color}};">
+            <block wx:if="{{!!col.type}}">{{filter[col.type](item[col.prop], col.param)}}</block>
+            <!-- //block 换成了 input -->
+            <input disabled= "{{this.data.tableEdit}}"  wx:else placeholder="{{item[col.prop]}}" bindtap="tabelClick"> </input>
+          </view>
+        </view>
+       
+      </view>
+      <text> 备注内容:</text>
+      <textarea class="orderinfo" placeholder="输入需要备注的内容" >
+      </textarea>
+    </scroll-view>
+    <view wx:if="{{tabData.length === 0}}" class="msg">
+      <view>暂无数据~</view>
+    </view>
+  </view>
+</view>
