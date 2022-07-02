@@ -1,15 +1,17 @@
 <!--index.wxml-->
-<view class="container">
+<view class="myTableContainer">
 <!----  使用默认宽度时，tableW="{{tableW}}"可以省略，js中也不需要tableW这个参数 ---->
 <!-- <mytable list="{{list}}" headers="{{headers}}" tableW="{{tableW}}"></mytable> -->
 <mytable1 tabData="{{tabData}}"
     	   columns="{{columns}}"
          setting="{{setting}}"
          tableEdit="{{tableEdit}}"
-    	   bind:getCurrentValue="getCurrentValue">
+         orderinfo="{{orderinfo}}"
+    	   bind:getCurrentValue="getCurrentValue" bind:dataChange="dataChange">
 </mytable1>
 </view>
-<text style="color:darkmagenta;">
-订单状态(请正确选择)
-</text>
-<custom-dropdown option2="{{option2}}"></custom-dropdown> 
+<!-- <custom-dropdown option2="{{option2}}"></custom-dropdown>  -->
+<orderState stateItems="{{stateItems}}" tableEdit="{{tableEdit}}" bind:upOrderSate="upOrderSate" id="orderStateCom"></orderState>
+<button bindtap="getOrderInfo" disabled="{{tableEdit}}" hidden="{{true}}">获取订单数据</button>
+<button bindtap="upData" disabled="{{tableEdit}}" hidden="{{tableEdit}}">更新数据</button>
+<view hidden="{{true}}">XXX企业制作，联系电话XXXX</view>

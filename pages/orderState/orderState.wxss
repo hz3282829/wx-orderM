@@ -1,0 +1,27 @@
+/* pages/orderState/orderState.wxss */
+label{
+  padding: 15px;
+}
+button{
+  width: 10px;
+  height: 30px;
+
+}
+.orderBut1{
+  float: left;
+  width: 10px;
+}
+.orderBut2{
+  float:right;
+  width: 10px;
+}
+.orderStateButton{
+
+ float: right;
+ width: 200px;
+}
+.orderStateTime
+{
+  color: brown;
+  font-size: small;
+}

@@ -1,6 +1,7 @@
 Component({
   data: {
-  
+    tableEdit:false,//内容是否可编辑
+    orderinfo:"hahaha",//订单内容信息描述
     headWidth: null, // 设置表格的整体宽度，用于水平滚动
     column: [], // 表头标题
     config: { // 表格自定义样式设置
@@ -23,18 +24,11 @@ Component({
       trHeight: '', // 表格行 tr 的高度
       stripe: '' ,// 表格的斑马纹背景色
     },
-    
-    // 表格标题列
-    columns: [
-      { label: '', prop: 'name', onclick: true, fontSize: '', textDecoration: 'underline', color: '#000'},
-      { label: '', prop: 'location'},
-      { label: '', prop: 'specialty'},
-      { label: '', prop: 'skill', fontSize: '',  textDecoration: '', color: ''}
-  
-    ]
+
   },
     // 自定义样式配置项
     setting: {
+     
       tableRadius: 0, // 表格圆角
       tableOutBorder: '', // 表格外边框
       tableInBorder: '', // 表格内边框
@@ -67,7 +61,16 @@ Component({
     setting: { // 父组件传入的表格自定义样式
       type: Object,
       value: {}
+    },
+    tableEdit:{
+      type:Boolean,
+      value:{}
+    },
+    orderinfo:{
+      type:String,
+      value:""
     }
+
   },
   observers: {
     'tabData'(val) {
@@ -128,15 +131,44 @@ Component({
     }
   },
   methods: {
+    onLoad: function () {
+      //console.log(" 子组件加载。。。。");
+    },
+
     // 表格某行的点击事件
     btnAction: function(e) {
       let value = e.currentTarget.dataset.value // value：一个包含点击行所有数据的对象
       this.triggerEvent("getCurrentValue", value)
     },
     tabelClick:function(e){
-      console.log("表格点击了:");
-      console.log(this.data);
+      //console.log("表格点击了:");
+      //console.log(this.data);
+    },
+    tabelInputHandle:function(e){
+       // console.log("文字变了:");
+        //console.log(e);
+        let item=e.currentTarget.dataset.item; //在每个input绑定不同的item作为标识
+        let itemID = e.currentTarget.dataset.param;
+        const user=this.data.tabData;
+        //console.log(item+"__"+itemID);
+        //console.log(typeof item)
+        //console.log(user[itemID][item]);
+        user[itemID][item]=e.detail.value //对象的属性名称是动态判定时，通过方括号标记访问
+        this.setData({
+          user
+        })
+      
+        this.triggerEvent("dataChange",this.data);
+        //console.log(this.data.tabData);
+    },
+    orderinfoChange:function(e){
+      //console.log(e.detail.value);
+      this.setData({
+        "orderinfo":e.detail.value
+      })
+      this.triggerEvent("dataChange",this.data);
     }
   }
+ 
 
 })

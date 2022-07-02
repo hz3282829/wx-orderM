@@ -5,6 +5,13 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+ 
+    
+    wx.cloud.init(
+      {
+        env:"cloud1-3g7i34i0e66e5a88"
+      }
+    )
 
     // 登录
     wx.login({
@@ -16,5 +23,13 @@ App({
   globalData: {
     userInfo: null
   },
+  onLoad() {
+    console.log("重新加载微信页面1111")
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true
+      })
+
+    }}
 
 })

@@ -2,35 +2,19 @@
 <view class="container">
 <!----  使用默认宽度时，tableW="{{tableW}}"可以省略，js中也不需要tableW这个参数 ---->
 <!-- <mytable list="{{list}}" headers="{{headers}}" tableW="{{tableW}}"></mytable> -->
-<view class="weui-cell weui-cell_input">
+  <view class="weui-cell weui-cell_input">
         <input class="weui-input" auto-focus placeholder="输入订单号" bindinput="handleorderValue"/>
         <button  bindtap="getmyOrderInfo" data-order="{{5678}}"> 查询订单</button>
-      </view>
-<!-- <mytable1 tabData="{{tabData}}"
-    	   columns="{{columns}}"
-    	   setting="{{setting}}"
-    	   bind:getCurrentValue="getCurrentValue">
-</mytable1> -->
+       <view class="mymanger">
+        <button hidden="{{true}}" disabled="{{tableEdit}}" bindtap="applyHandle">申请管理</button>
+        <view class="mgroup" hidden="{{tableEdit}}" >
+          <input placeholder="输入需要管理的openid" bindinput="mangerDataChange">
+        </input>
+          <button bindtap="addMangerHandle" disabled="{{tableEdit}}"> 添加管理</button>
+          <button bindtap="deleMangerHandle" disabled="{{tableEdit}}">移除管理</button>
+        </view>
+        
+       </view>
+  </view>
 
-
-  <!-- <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view> -->
-  <!-- <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
 </view>

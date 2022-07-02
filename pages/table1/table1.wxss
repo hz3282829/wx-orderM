@@ -1,5 +1,6 @@
 .container {
   overflow-x: scroll;
+  background-color: black;
 }
 .table {
   border: 2rpx solid #ebeef5;
@@ -52,4 +53,33 @@
   width: 0;
   height: 0;
   color: transparent;
+}
+/* input{
+  border: 1px;
+  border-style:groove;
+ 
+} */
+/* .location{
+  border: 1px;
+  border-style:groove
+}
+.skill{
+  border: 1px;
+  border-style:groove
+} */
+
+.name{
+  text-decoration: underline;
+}
+.specialty{
+  text-decoration: underline;
+}
+.orderinfo{
+  margin: 10px;
+}
+.beizhu{
+  font-size: 0.9rem;
+  font-style:italic;
+  margin: 10px;
+  font-weight:bold
 }

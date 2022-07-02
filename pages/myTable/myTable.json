@@ -1,8 +1,7 @@
 {
     "usingComponents": {
-      "mytable":"../../pages/table/table",
       "mytable1":"../../pages/table1/table1",
-      "custom-dropdown":"../../pages/drop-down/drop-down"
+      "orderState":"../../pages/orderState/orderState"
     }
   }
   

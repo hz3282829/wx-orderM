@@ -1,7 +1,4 @@
 {
   "usingComponents": {
-    "mytable":"../../pages/table/table",
-    "mytable1":"../../pages/table1/table1"
-
   }
 }

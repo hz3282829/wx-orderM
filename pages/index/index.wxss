@@ -1,19 +1,14 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
+.mymanger{
+  padding: 10px;
+}
+.mymanger button{
+  margin: 10px;
+}
+input{
+  padding: 10px;
+  border-style:dotted;
+  border-color: rgb(12, 12, 12);
+  border-width: 1px;
 }
 
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.usermotto {
-  margin-top: 200px;
-}

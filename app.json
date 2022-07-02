@@ -1,6 +1,5 @@
 {
   "pages": [ 
-    
     "pages/index/index",
     "pages/myTable/myTable"
     
@@ -8,7 +7,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "盛高SG供应链",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

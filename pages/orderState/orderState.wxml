@@ -1,0 +1,21 @@
+<view class="page-body">
+  <view class="page-section">
+    <view class="page-section-title">订单状态</view>
+    <view class="weui-cells weui-cells_after-title">
+      <radio-group bindchange="radioChange">
+        <label class="weui-cell weui-check__label" wx:for="{{stateItems}}" wx:key="{{item.id}}"> 
+          <view class="weui-cell__hd">
+            <radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{tableEdit}}" />
+            {{item.name}}<text class="orderStateTime"> </text>
+            <view class="orderStateButton">
+              <button class="orderBut1" size="mini" bindtap="takeImg" id="{{item.id}}" disabled="{{tableEdit}}" hidden="{{tableEdit}}">拍照</button>
+              <button class="orderBut2" size="mini" bindtap="viewImg" id="{{item.id}}">预览</button>
+            </view>
+            
+          </view>
+          <!-- <view class="weui-cell__bd">{{item.name}}</view> -->
+        </label>
+      </radio-group>
+    </view>
+  </view>
+</view>

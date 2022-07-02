@@ -28,13 +28,14 @@
           		style="text-align:{{config.tbodyAlign}};font-size:{{col.fontSize}}rpx;font-weight:{{col.fontWeight}};text-decoration:{{col.textDecoration}};color:{{col.color}};">
             <block wx:if="{{!!col.type}}">{{filter[col.type](item[col.prop], col.param)}}</block>
             <!-- //block 换成了 input -->
-            <input disabled= "{{this.data.tableEdit}}"  wx:else placeholder="{{item[col.prop]}}" bindtap="tabelClick"> </input>
+            <input disabled= "{{tableEdit}}"  wx:else value="{{item[col.prop]}}" bindtap="tabelClick"  bindinput="tabelInputHandle" data-item="{{col.prop}}" data-param="{{index}}" data-num="{{col.type}}" class="{{col.prop}}"> </input>
           </view>
         </view>
        
       </view>
-      <text> 备注内容:</text>
-      <textarea class="orderinfo" placeholder="输入需要备注的内容" >
+      <text class="beizhu"> 备注内容:</text>
+      <textarea class="orderinfo" placeholder="" value="{{orderinfo}}" bindinput="orderinfoChange">
+      
       </textarea>
     </scroll-view>
     <view wx:if="{{tabData.length === 0}}" class="msg">
